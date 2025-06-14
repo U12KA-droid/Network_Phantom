@@ -1,0 +1,150 @@
+# 🕵️‍♂️ Network Diagnostic Tool – Stealth-Grade Asynchronous Scanner
+
+> ⚡️ Advanced, async-powered network scanner designed for stealth, speed, and professional-grade diagnostics.
+
+![License](https://img.shields.io/badge/license-Educational--Only-blue)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Stealth Mode](https://img.shields.io/badge/stealth-mode-green)
+![Async](https://img.shields.io/badge/async-powered-yellow)
+
+---
+
+## 🎯 Why This Tool?
+
+In high-stakes environments, **being seen is a risk**. Traditional scanners are noisy, predictable, and trigger defenses fast.
+
+**This tool is different.**
+
+Built with stealth-first engineering and advanced async performance, `network_diagnostic.py` provides penetration testers, red teamers, and security professionals with a **controlled, silent, and insightful** way to map and fingerprint networks — without tipping off the blue team.
+
+---
+
+## 🧠 Core Features
+
+✅ **Asynchronous TCP Scanning**  
+Scan entire subnets concurrently using `asyncio` for high performance without socket flooding.
+
+✅ **Stealth Mode (Enabled by Default)**  
+Random IP + port order, randomized delays, non-blocking probes — built to **bypass IDS** and minimize noise.
+
+✅ **Lightweight Service Fingerprinting**  
+Identify services running on common ports (HTTP, SSH, MySQL, RDP...) without deep packet inspection.
+
+✅ **Noise Injection (Optional)**  
+Send randomized harmless packets during scanning to blend into background traffic.
+
+✅ **Decoy IP Support** *(Coming Soon)*  
+Send scan traffic from multiple spoofed sources to confuse attribution.
+
+✅ **TCP Flags Variety (FIN, NULL, Xmas)** *(Coming Soon)*  
+Evade traditional firewall detection by scanning with alternative TCP techniques.
+
+✅ **MAC Address Rotation** *(Coming Soon)*  
+Change MAC before each scanning batch (on Linux) to frustrate device-level tracking.
+
+✅ **Fake HTTP Headers** *(Coming Soon)*  
+Mimic browser-like behavior when touching web ports to look human, not scripted.
+
+✅ **Detailed Logging**  
+Every scan is logged to `.log` and `.json`, with timestamps, ports, response time, and services.
+
+✅ **Easy to Use. Easy to Extend.**  
+Run in one command, tweak with CLI flags, and build on a modular codebase designed for real operations.
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Basic stealth scan on a subnet
+python3 network_diagnostic.py 192.168.1.0/24
+
+# Scan custom ports with increased concurrency
+python3 network_diagnostic.py 10.0.0.0/24 --ports 22,80,443,3389 --max-concurrent 100
+
+# Extra stealth: Slow it down to look human
+python3 network_diagnostic.py 172.16.0.0/16 --delay-min 1.0 --delay-max 5.0
+
+⚙️ CLI Options
+| Argument           | Description                                   |
+| ------------------ | --------------------------------------------- |
+| `subnet`           | Target subnet in CIDR (e.g. `192.168.1.0/24`) |
+| `--ports`          | Comma-separated port list                     |
+| `--max-concurrent` | Max concurrent tasks (default: 50)            |
+| `--timeout`        | Timeout in seconds (default: 3.0)             |
+| `--delay-min`      | Min delay between scans (default: 0.1s)       |
+| `--delay-max`      | Max delay between scans (default: 2.0s)       |
+| `--output`         | Output file prefix                            |
+| `--no-stealth`     | Disable stealth mode                          |
+
+🧪 Example Output (JSON)
+{
+  "subnet": "192.168.1.0/24",
+  "scan_time": "2025-06-13T01:23:45",
+  "unique_hosts": 4,
+  "results": [
+    {
+      "ip_address": "192.168.1.10",
+      "port": 22,
+      "status": "open",
+      "service": "SSH",
+      "response_time": 7.23
+    },
+    ...
+  ]
+}
+
+🔒 Ethical Use Notice
+
+This tool is intended for educational, auditing, and authorized security assessments only.
+Using it on networks you don't own or have permission to scan is illegal and unethical.
+
+👨‍💻 Credits
+
+Built with ❤️ by a passionate security researcher for the community.
+Open to contributions, suggestions, and responsible feature requests.
+
+📌 TODO (Planned Features)
+
+Decoy IP Injection
+
+FIN/NULL/Xmas Scan Modes
+
+MAC Spoofing per batch
+
+Fake HTTP Header Profiles
+
+IDS Evasion Simulation Mode
+
+Interactive Visualization Dashboard (via web UI)
+
+Penetration Testing Starts with Understanding
+
+Mapping your target silently is half the battle.
+This tool gives you clarity without noise, and power without being seen
+Know the network. Hide in the noise. Strike precisely.
+
+📁 Output Files
+network_scan_results.log — live terminal + file logs
+
+network_scan_results.json — full scan dump (for analysis, import, reporting)
+
+Requirements
+
+    Python 3.8+
+
+    Works on Linux, macOS, and Windows
+
+    No external dependencies (pure stdlib)
+
+Example Integration
+
+Use the JSON output with tools like:
+
+    jq for parsing/filtering
+
+    Neo4j or SQLite for storing host/port graphs
+
+    SIEMs or dashboards for Red Team reports
+    
+        
